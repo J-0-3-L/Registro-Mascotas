@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h1 style="color: rgb(28, 131, 221);">Usuarios</h1>
+    {% for user in users %}
+    <div class="card" style="color: rgb(7, 7, 7);">
+        <p style="display: flex; align-items: left;">
+            {{ user.username }}  -  {{ user.dni }}
+        </p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
