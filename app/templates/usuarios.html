@@ -7,6 +7,10 @@
     <div class="card" style="color: rgb(7, 7, 7);">
         <p style="display: flex; align-items: left;">
             {{ user.username }}  -  {{ user.dni }}
+            <span  style="position: absolute; right: 3%;">
+                <a class="btn btn-warning" role="button" href="{{ url_for('pets_bp.create_pet' ,id= user.id)}}">Añadir mascota</a>
+                <a class="btn btn-info" role="button" href="{{ url_for('pets_bp.pet_id' ,id= user.id)}}">Ver Mascotas</a>
+            </span>
         </p>
     </div>
     {% endfor %}

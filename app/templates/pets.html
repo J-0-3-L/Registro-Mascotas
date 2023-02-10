@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}  
+
+<h3>PETS</h3>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center;">
+{% for pet in pets %}
+  <div class="card" style="width: 200px; display: inline-block; margin: 20px;">
+      <div class="card-body">
+        <h5 class="card-title">{{ pet.name_pet }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ pet.race }}  -  {{ pet.user.username }}</h6>
+        <p class="card-text">{{ pet.birthdate }}</p>
+      </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}

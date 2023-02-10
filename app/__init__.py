@@ -39,10 +39,12 @@ def create_app():
     with app.app_context():
     
         from app.views import bp as views_bp
+        from app.pets import bp as pets_bp
         
 
     
         app.register_blueprint(views_bp)
+        app.register_blueprint(pets_bp)
         
 
     return app

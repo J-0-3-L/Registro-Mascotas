@@ -10,7 +10,7 @@ bp = Blueprint("views_bp", __name__)
 
 @bp.route("/")
 def index():
-    return 'Bienvenidos a Cuidando Mascotas'
+    return render_template("inicio.html")
 
 @bp.route("/users")
 def users():
@@ -37,3 +37,5 @@ def add_user():
         else:
             flash("Ya existe un usuario con ese dni")
     return render_template("usuario.html", form=form)
+
+

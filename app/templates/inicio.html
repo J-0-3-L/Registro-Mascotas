@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <img src="https://images3.alphacoders.com/825/825277.jpg" alt="animales" width="500"
+    height="500">
+    <div>
+        <h4>BIENVENIDOS a Wellitas</h4>
+        <p>Registra a tus mascotas</p>
+        <a class="btn btn-success" href="{{ url_for('views_bp.add_user')}}" role="button">Registra</a>
+    </div>
+</div>
+{% endblock %}

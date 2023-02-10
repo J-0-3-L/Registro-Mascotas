@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField , IntegerField , DateField
+from wtforms import StringField, SubmitField , IntegerField , DateField , SelectField
 from wtforms.validators import DataRequired
 
 class CreateForm(FlaskForm):
@@ -11,4 +11,5 @@ class PetForm(FlaskForm):
     name_pet = StringField("Mascota", validators=[DataRequired()])
     race = StringField("Raza" , validators=[DataRequired()])
     birthdate = DateField("Fecha de nacimiento" , validators=[DataRequired()])
+    user_id = SelectField("Usuario dueño", coerce=int)
     submit = SubmitField("Añadir mascota")
