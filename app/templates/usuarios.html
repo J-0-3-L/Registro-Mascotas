@@ -1,18 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
-    <h1 style="color: rgb(28, 131, 221);">Usuarios</h1>
-    {% for user in users %}
-    <div class="card" style="color: rgb(7, 7, 7);">
-        <p style="display: flex; align-items: left;">
-            {{ user.username }}  -  {{ user.dni }}
-            <span  style="position: absolute; right: 3%;">
-                <a class="btn btn-warning" role="button" href="{{ url_for('pets_bp.create_pet' ,id= user.id)}}">Añadir mascota</a>
-                <a class="btn btn-info" role="button" href="{{ url_for('pets_bp.pet_id' ,id= user.id)}}">Ver Mascotas</a>
-            </span>
-        </p>
+<div class="container mt-5">
+    <h1 class="text-light text-center mb-5">USUARIOS</h1>
+    
+    <div class="d-flex flex-wrap justify-content-center">
+        {% for user in users %}
+        <div class="card mb-3" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ user.username }}</h5>
+                <p class="card-text">{{ user.dni }}</p>
+                <a href="{{ url_for('pets_bp.pet_id' , username=user.username)}}" class="btn btn-primary">Ver Mascotas</a>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+    
+    <div class="d-flex justify-content-center">
+        <a href="{{ url_for('pets_bp.create_pet')}}" class="btn btn-warning">Añadir mascota</a>
+    </div>
 </div>
 {% endblock %}

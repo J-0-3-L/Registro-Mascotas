@@ -1,6 +1,24 @@
 {% extends "base.html" %}
 
-{% block content %}  
+{% block content %}
+<form action="{{ url_for('pets_bp.pets') }}" method="post">
+  <label for="search">Buscar:</label>
+  <input type="text" name="search" id="search">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <input type="submit" value="Buscar">
+</form>
+
+<form action="{{ url_for('pets_bp.pets') }}" method="post">
+  <label for="sort_by">Ordenar por:</label>
+  <select name="sort_by" id="sort_by">
+    <option value="birthdate">Fecha de Nacimiento</option>
+    <option value="name_pet">Nombre</option>
+    <option value="race">Raza</option>
+    <option value="username">Nombre del Propietario</option>
+  </select>
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <input type="submit" value="Ordenar">
+</form>
 
 <h3>PETS</h3>
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center;">

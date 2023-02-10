@@ -3,6 +3,7 @@
 {% block content %}
 <h3>PETS PERSONAL</h3>
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center;">
+  {% for pet in pets %}
   <div class="card" style="width: 200px; display: inline-block; margin: 20px;">
       <div class="card-body">
         <h5 class="card-title">{{ pet.name_pet }}</h5>
@@ -15,5 +16,27 @@
           
       </div>
   </div>
+  {% endfor %}
 </div>
+
+<!-- <h3>Posts Personal</h3>
+
+<div class="row justify-content-center" style="color: black;">
+    <div class="col-3">
+        {% for post in posts %}
+        <div class="card">
+            <div class="card-body">
+                <p>{{ post.body }}</p>
+                <p class="text-secondary">{{ post.user.full_name }} <small>{{ post.timestamp }}</small></p>
+                {% if current_user.id == post.user_id %}
+                <p>
+                    <a href="{{ url_for('admin_bp.update_post', id=post.id) }}">Actualizar</a> 
+                    <a href="{{ url_for('admin_bp.delete_post', id=post.id) }}">Eliminar</a>
+                </p>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div> -->
 {% endblock %}
