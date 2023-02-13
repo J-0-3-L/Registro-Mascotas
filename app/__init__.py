@@ -40,11 +40,13 @@ def create_app():
     
         from app.views import bp as views_bp
         from app.pets import bp as pets_bp
+        from app.api import bp as api_bp
         
 
     
         app.register_blueprint(views_bp)
         app.register_blueprint(pets_bp)
+        app.register_blueprint(api_bp,url_prefix='/api')
         
 
     return app
